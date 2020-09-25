@@ -18,6 +18,9 @@ fi
 
 cp -r $HOME/.config/{nvim,i3,picom,polybar,awesome} ./.config
 
+# Neovim
+cp -r $HOME/.config/nvim/{init.vim,keybindings.vim,lua,vim-plug,coc-config.vim,coc-explorer-config.vim} ./config/nvim
+
 gs="$(git status | grep -i "modified")"
 
 # Check if dotfiles are modified
