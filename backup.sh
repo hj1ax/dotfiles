@@ -10,7 +10,13 @@ else
 fi
 
 # Copy dotfiles
-cp  $HOME/{.zshrc,.vimrc} .
+cp $HOME/{.zshrc,.aliases} .
+
+if [ ! -d "./config" ]; then
+    mkdir .config
+fi
+
+cp $HOME/.config/{nvim,i3,picom,polybar,awesome} ./config
 
 gs="$(git status | grep -i "modified")"
 
