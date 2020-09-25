@@ -16,7 +16,7 @@ if [ ! -d "./.config" ]; then
     mkdir .config
 fi
 
-cp $HOME/.config/{nvim,i3,picom,polybar,awesome} ./.config
+cp -r $HOME/.config/{nvim,i3,picom,polybar,awesome} ./.config
 
 gs="$(git status | grep -i "modified")"
 
