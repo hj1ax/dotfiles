@@ -22,7 +22,7 @@ gs="$(git status | grep -i "modified")"
 
 # Check if dotfiles are modified
 if [[ $gs == *"modified"* ]]; then
-  echo "push"
+  echo "dotfiles are modified"
 fi
 
 # push to Github
