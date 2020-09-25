@@ -20,6 +20,7 @@ cp -r $HOME/.config/{i3,picom,polybar,awesome} ./.config
 
 # Neovim
 if [ ! -d "./.config/nvim/{lua,vim-plug}"]; then
+    mkdir ./.config/nvim
     mkdir ./.config/nvim/{lua,vim-plug}
 fi
 cp $HOME/.config/nvim/{init.vim,keybindings.vim,coc-config.vim,coc-explorer-config.vim} ./.config/nvim
