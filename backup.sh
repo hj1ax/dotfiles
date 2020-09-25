@@ -12,7 +12,7 @@ fi
 # Copy dotfiles
 cp $HOME/{.zshrc,.aliases} .
 
-if [ ! -d "./config" ]; then
+if [ ! -d "./.config" ]; then
     mkdir .config
 fi
 
