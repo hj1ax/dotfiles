@@ -16,7 +16,7 @@ if [ ! -d "./.config" ]; then
     mkdir .config
 fi
 
-rsync -r -L --exclude=.git $HOME/.config/{i3,picom,polybar,awesome,nvim} ./.config
+rsync -r -l --exclude=.git $HOME/.config/{i3,picom,polybar,awesome,nvim} ./.config
 
 gs="$(git status | grep -i "modified")"
 
