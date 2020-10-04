@@ -16,17 +16,7 @@ if [ ! -d "./.config" ]; then
     mkdir .config
 fi
 
-cp -r $HOME/.config/{i3,picom,polybar,awesome} ./.config
-
-# Neovim
-if [ ! -d "./.config/nvim/${lua,vim-plug}" ]; then
-    mkdir ./.config/nvim
-    mkdir ./.config/nvim/{lua,vim-plug}
-fi
-
-cp $HOME/.config/nvim/{init.vim,keybindings.vim,coc-config.vim,coc-explorer-config.vim} ./.config/nvim
-cp -r $HOME/.config/nvim/lua ./.config/nvim/lua
-cp -r $HOME/.config/nvim/vim-plug ./.config/nvim/vim-plug
+rsync -r -v --exclude=.git $HOME/.config/{i3,picom,polybar,awesome,nvim} ./.config
 
 gs="$(git status | grep -i "modified")"
 
