@@ -8,7 +8,7 @@ font pango:monospace 8
 
 # Configure border style
 new_window pixel 1
-new_float normal
+new_float pixel 1
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -27,7 +27,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'Jetbrains Mono-12' -nb '#4C566A' -nf '#ECEFF4' -sb '#81A1C1' -sf '#D8DEE9'
+bindsym $mod+d exec dmenu_run -fn 'Jetbrains Mono-12' -nb '#3B4252' -nf '#ECEFF4' -sb '#81A1C1' -sf '#D8DEE9'
 
 # change focus
 bindsym $mod+h focus left
@@ -114,7 +114,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Screenshots
-bindsym Print exec xfce4-screenshooter
+bindsym Print exec spectacle
 
 # reload the configuration file
 bindsym $mod+Control+i reload
