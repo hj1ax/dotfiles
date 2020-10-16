@@ -25,12 +25,6 @@ if [[ $gs == *"modified"* ]]; then
     echo "dotfiles are modified"
 fi 
 
-gs="$(git status | grep -i "Untracked")"
-
-if [[ $gs == *"Untracked" ]]; then 
-    echo "new dotfiles"
-    git add -A
-fi
 # push to Github
 git add -u;
 git commit -m "New backup `date +'%Y-%m-%d %H:%M:%S'`";
