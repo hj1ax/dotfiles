@@ -94,10 +94,9 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 
-# Dotbare
-export DOTBARE_DIR="$HOME/.cfg"
-export DOTNARE_TREE="$HOME"
-export DOTBARE_BACKUP="${XDG_DATA_HOME:-$HOME/.local/share}/dotbare"
-
 # Yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# QT5CT
+export QT_QPA_PLATFORM=qtTct
+
