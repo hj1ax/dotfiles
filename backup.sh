@@ -3,10 +3,10 @@
 # Check if git is avaible
 IS_GIT_AVAILABLE="$(git --version)"
 if [[ $IS_GIT_AVAILABLE == *"version"* ]]; then
-  echo "Git is Available"
+    echo "Git is Available"
 else
-  echo "Git is not installed"
-  exit 1
+    echo "Git is not installed"
+    exit 1
 fi
 
 # Copy dotfiles
@@ -22,9 +22,13 @@ gs="$(git status | grep -i "modified")"
 
 # Check if dotfiles are modified
 if [[ $gs == *"modified"* ]]; then
-  echo "dotfiles are modified"
-fi
+    echo "dotfiles are modified"
+fi 
 
+if [[ $gs == *"Untracked" ]]; then 
+    echo "new dotfiles"
+    git add -A
+fi
 # push to Github
 git add -u;
 git commit -m "New backup `date +'%Y-%m-%d %H:%M:%S'`";
