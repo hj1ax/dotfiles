@@ -17,6 +17,7 @@ if [ ! -d "./.config" ]; then
 fi
 
 rsync -r -l --exclude=.git $HOME/.config/{i3,bspwm,sxhkd,picom,polybar,nvim,qt5ct} ./.config
+rsync $HOME/Pictures/Wallpapers ./Pictures/Wallpapers
 
 gs="$(git status | grep -i "modified")"
 
