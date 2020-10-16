@@ -25,6 +25,8 @@ if [[ $gs == *"modified"* ]]; then
     echo "dotfiles are modified"
 fi 
 
+gs="$(git status | grep -i "Untracked")"
+
 if [[ $gs == *"Untracked" ]]; then 
     echo "new dotfiles"
     git add -A
