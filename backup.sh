@@ -10,7 +10,7 @@ else
 fi
 
 # Copy dotfiles
-cp $HOME/{.zshrc,.aliases} .
+cp $HOME/{.zshrc,.aliases,$HOME/.Xresources} .
 
 if [ ! -d "./.config" ]; then
     mkdir .config
