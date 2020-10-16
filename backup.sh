@@ -19,6 +19,8 @@ fi
 rsync -r -l --exclude=.git $HOME/.config/{i3,bspwm,sxhkd,picom,polybar,nvim,qt5ct} ./.config
 rsync -r $HOME/Pictures/Wallpapers/* ./Pictures/Wallpapers
 
+git add -A
+
 gs="$(git status | grep -i "modified")"
 
 # Check if dotfiles are modified
