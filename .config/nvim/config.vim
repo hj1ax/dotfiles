@@ -61,7 +61,7 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='nord'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
-let g:coc_node_path='$HOME/.nvm/versions/node/v12.18.4/bin/node'
+let g:coc_node_path='$HOME/.nvm/versions/node/v12.19.0/bin/node'
 
 source ~/.config/nvim/coc-config.vim
 source ~/.config/nvim/coc-explorer-config.vim
