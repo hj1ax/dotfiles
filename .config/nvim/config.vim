@@ -57,7 +57,6 @@ if (empty($TMUX))
 endif
 
 "- Variables
-let g:airline_powerline_fonts=1
 let g:airline_theme='nord'
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 

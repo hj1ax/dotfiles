@@ -98,5 +98,5 @@ fi
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # QT5CT
-export QT_QPA_PLATFORM=qtTct
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
