@@ -30,7 +30,8 @@ alert = #BF616A
 [bar/bar1]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 22
+height = 18
+bottom = true
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -42,29 +43,30 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
-border-size = 0
-border-color = #3b4252
+border-size = 4
+border-color = ${colors.background}
 
 padding-left = 0
-padding-right = 4
+padding-right = 0
 
-module-margin-left = 2
-module-margin-right = 2
+module-margin-left = 1
+module-margin-right = 1
 
-font-0 = "Montserrat:size=11:weight=Regular"
-font-1 = "Font Awesome 5 Free,Font Awesome 5 Free Solid: style=Solid: size=10"
-font-2 = "Font Awesome 5 Free,Font Awesome 5 Free Regular: style=Regular: size=10"
+font-0 = "Ubuntu Mono:size=9:weight=Regular;1"
+font-1 = "Font Awesome 5 Free,Font Awesome 5 Free Solid: style=Solid: size=10;2"
+font-2 = "Font Awesome 5 Free,Font Awesome 5 Free Regular: style=Regular: size=10;2"
 font-3 = "Font Awesome 5 Brands,Font Awesome 5 Brands Regular:style=Regular"
+font-4 = "Jetbrains Mono: style=Regular: size=10"
 
 modules-left = i3 bspwm
-modules-center = date
-modules-right = pulseaudio battery cpu memory
+modules-center = 
+modules-right = pulseaudio battery wlan date
 
 tray-position = right
 tray-padding = 8
-tray-background = ${colors.background-alt}
+tray-background = ${colors.background}
 
-wm-restack = bspwm
+;wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = true
@@ -145,8 +147,9 @@ label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-background = ${colors.foreground}
+label-focused-foreground = ${colors.background}
+
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -156,7 +159,6 @@ label-unfocused-padding = 2
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -213,18 +215,21 @@ label = CPU: %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #A3BE8C
+format-background = #A3BE8C
+format-foreground = #ffffff
+format-padding = 2
 label = RAM: %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = net1
+interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
+format-connected-background = #B48EAD
+format-connected-foreground = #000000
+format-connected-padding = 1
+label-connected = %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -232,11 +237,7 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
@@ -259,22 +260,32 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-date = %a, %d %B %Y
+date = %d/%m/%y
 
-time = %H:%M:%S
+time = %H:%M
 
 label = %date% %time%
+
+format-background = #ECEFF4
+format-foreground = #000000
+format-padding = 1
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <ramp-volume>  <label-volume>
-format-muted = <label-muted>
+format-volume-padding = 1
+format-volume-background = #EBCB8B 
+format-volume-foreground = #000000
+#format-volume = <ramp-volume> <label-volume>
+format-volume = <bar-volume> <label-volume>
+format-muted = <bar-volume> <label-muted> M
+format-muted-background = #666
+format-muted-padding = 1
+format-muted-foreground = #ECEFF4
 label-volume = %percentage%%
-label-volume-foreground = ${root.foreground}
+label-volume-foreground = #000000
 
-label-muted =   %percentage%%
-label-muted-foreground = #666
+label-muted =  %percentage%%
 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -283,13 +294,8 @@ ramp-volume-2 = 
 #click-right = pavucontrol &
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-fill-foreground = #000000
+bar-volume-indicator-foreground = #000000
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -297,7 +303,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = #ffffff
 
 [module/alsa]
 type = internal/alsa
@@ -337,32 +343,31 @@ battery = BAT1
 adapter = ACAD
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
-format-charging-underline = #EBCB8B
+format-charging-padding = 1
+format-discharging-padding = 1
+format-full-padding = 1
 
-format-discharging = <animation-discharging> <label-discharging>
+label-charging = #000
+label-discharging = #000
+label-full = #000
+
+format-charging-background = #A3BE8C
+format-charging = <ramp-capacity> <label-charging>
+
+format-discharging-background = #A3BE8C
+format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-background = #A3BE8C
+format-full = <ramp-capacity> <label-full>
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 1250
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = #000000
 
 [module/temperature]
 type = internal/temperature
@@ -390,8 +395,10 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
-label-open-foreground = ${colors.secondary}
+label-open = 
+label-open-foreground = #ECEFF4
+label-open-background = #BF616A
+label-open-padding = 1
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |

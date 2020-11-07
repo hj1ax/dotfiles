@@ -4,7 +4,7 @@ set $mod Mod4
 # Set terminal
 set $term kitty
 
-font pango:monospace 8
+font pango:Ubuntu Mono 9
 
 # Configure border style
 new_window pixel 2
@@ -27,7 +27,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+c kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'Jetbrains Mono-12' -nb '#3B4252' -nf '#ECEFF4' -sb '#81A1C1' -sf '#D8DEE9'
+bindsym $mod+d exec dmenu_run -fn 'Ubuntu Mono-12' -h 25 -b -nb '#3B4252' -nf '#ECEFF4' -sb '#81A1C1' -sf '#D8DEE9'
 
 # change focus
 bindsym $mod+h focus left
@@ -152,11 +152,11 @@ bindsym $mod+r mode "resize"
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #2E3440 #4C566A #E5E9F0 #4C566A #4C566A
-  client.focused_inactive #2E3440 #2E3440 #E5E9F0 #4C566A #2E3440
-  client.unfocused        #2E3440 #2E3440 #E5E9F0 #4C566A #2E3440
-  client.urgent           #4C566A #2E3440 #E5E9F0 #4C566A #4C566A
-  client.placeholder      #4C566A #2E3440 #E5E9F0 #4C566A #4C566A
+  client.focused          #4C566A #4C566A #E5E9F0 #4C566A #4C566A
+  client.focused_inactive #3B4252 #3B4252 #E5E9F0 #3B4252 #3B4252
+  client.unfocused        #3B4252 #3B4252 #E5E9F0 #3B4252 #3B4252
+  client.urgent           #BF616A #BF616A #E5E9F0 #BF616A #BF616A
+  client.placeholder      #4C566A #4C566A #E5E9F0 #4C566A #4C566A
 
   client.background       #2E3440
 
@@ -222,10 +222,12 @@ mode "$mode_gaps_outer" {
 # Personal keybindings
 
 
+# Assign workspace for programs
+assign [class="^firefox"] 3
+
 # Autostart applications
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
-exec_always --no-startup-id autotiling
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/picom/launch.sh #picom --experimental-backends --config ~/.config/picom/picom.conf
