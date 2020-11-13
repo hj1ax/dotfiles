@@ -66,7 +66,7 @@ tray-position = right
 tray-padding = 8
 tray-background = ${colors.background}
 
-;wm-restack = bspwm
+wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = true
@@ -227,9 +227,9 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-background = #B48EAD
-format-connected-foreground = #000000
 format-connected-padding = 1
 label-connected = %local_ip%
+label-connected-foreground = #000000
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -238,7 +238,7 @@ format-disconnected =
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
 ramp-signal-0 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-foreground = #000000
 
 [module/eth]
 type = internal/network
@@ -278,14 +278,14 @@ format-volume-background = #EBCB8B
 format-volume-foreground = #000000
 #format-volume = <ramp-volume> <label-volume>
 format-volume = <bar-volume> <label-volume>
-format-muted = <bar-volume> <label-muted> M
+format-muted = <bar-volume> <label-muted>
 format-muted-background = #666
 format-muted-padding = 1
 format-muted-foreground = #ECEFF4
 label-volume = %percentage%%
 label-volume-foreground = #000000
 
-label-muted =  %percentage%%
+label-muted =  %percentage%M
 
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -303,7 +303,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = #ffffff
+bar-volume-empty-foreground = #333333
 
 [module/alsa]
 type = internal/alsa

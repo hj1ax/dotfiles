@@ -1,3 +1,6 @@
+# Background opacity
+background_opacity: 0.6
+
 # Colors (Nord)
 colors:
    # Default colors

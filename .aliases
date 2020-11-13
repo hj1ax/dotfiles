@@ -1,3 +1,4 @@
-alias ls="ls --color=auto"
+alias ls="exa"
+alias tree="exa --tree"
 alias vim="nvim"
 alias tf="touch"
