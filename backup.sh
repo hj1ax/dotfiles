@@ -16,8 +16,8 @@ if [ ! -d "./.config" ]; then
     mkdir .config
 fi
 
-rsync -r -l --exclude=.git $HOME/.config/{i3,bspwm,sxhkd,picom,polybar,nvim,qt5ct,alacritty,kitty} ./.config
-rsync -r $HOME/Pictures/Wallpapers/* ./Pictures/Wallpapers
+rsync -r -l --exclude=.git --exclude=$HOME/.config/nvim/autoload $HOME/.config/{i3,bspwm,sxhkd,picom,polybar,nvim,qt5ct,alacritty,kitty} ./.config
+rsync -r $HOME/Pictures/Wallpapers/* Pictures/Wallpapers
 
 git add -A
 

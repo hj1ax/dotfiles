@@ -17,10 +17,13 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'Yggdroot/indentLine'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mhinz/vim-startify'
-Plug 'neoclide/coc.nvim', {'brach': 'release'}
+Plug 'neoclide/coc.nvim', { 'brach': 'release' }
 Plug 'airblade/vim-gitgutter'
 Plug 'liuchengxu/vim-which-key'
 Plug 'arcticicestudio/nord-vim'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'sheerun/vim-polyglot'
+Plug 'ryanoasis/vim-devicons'
+Plug 'alvan/vim-closetag'
 
 call plug#end()

@@ -5,7 +5,7 @@ syntax on
 set background=dark
 set guifont=Jetbrains\ Mono:h12
 let g:gruvbox_italic=1
-colorscheme nord
+colorscheme onedark
 
 "- Status bar
 set laststatus=2
@@ -18,6 +18,10 @@ set nocompatible
 filetype plugin on
 set mouse=a
 
+" Split to bottom and right, as sane people think it would
+
+set splitbelow splitright
+
 "- Fix backspace indent
 set backspace=indent,eol,start
 
@@ -27,7 +31,7 @@ set shiftwidth=4
 set expandtab
 
 "- Map leader key
-let mapleader=","
+let mapleader=" "
 
 "- Enable hidden buffers
 set hidden
@@ -56,11 +60,29 @@ if (empty($TMUX))
   endif
 endif
 
-"- Variables
-let g:airline_theme='nord'
+" Airline theme
+let g:airline_theme='onedark'
+
+" Airline powerline fonts
+let g:airline_powerline_fonts=1
+
+let g:airline#extentions#tabline#enabled=1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
-let g:coc_node_path='$HOME/.nvm/versions/node/v12.19.0/bin/node'
+
+
+" Display CoC warnings in airline
+
+let g:airline#extensions#coc#enabled = 1
+let airline#extensions#coc#error_symbol = 'Err:'
+let airline#extensions#coc#warning_symbol = 'Warn:'
+let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+
+" Autoclose tags e.g. <div> in following files
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.ts,*.tsx,*.jsx'
+
 
 source ~/.config/nvim/coc-config.vim
 source ~/.config/nvim/coc-explorer-config.vim

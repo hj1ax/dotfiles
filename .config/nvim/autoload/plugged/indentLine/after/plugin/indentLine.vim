@@ -18,7 +18,7 @@ let g:indentLine_first_char = get(g:, 'indentLine_first_char', (&encoding ==# "u
 let g:indentLine_indentLevel = get(g:, 'indentLine_indentLevel', 20)
 let g:indentLine_enabled = get(g:, 'indentLine_enabled', 1)
 let g:indentLine_fileType = get(g:, 'indentLine_fileType', [])
-let g:indentLine_fileTypeExclude = get(g:, 'indentLine_fileTypeExclude', [])
+let g:indentLine_fileTypeExclude = get(g:, 'indentLine_fileTypeExclude', ['leaderf'])
 let g:indentLine_bufNameExclude = get(g:, 'indentLine_bufNameExclude', [])
 let g:indentLine_bufTypeExclude = get(g:, 'indentLine_bufTypeExclude', [])
 let g:indentLine_showFirstIndentLevel = get(g:, 'indentLine_showFirstIndentLevel', 0)
@@ -307,11 +307,7 @@ endfunction
 
 "{{{1 function! s:Disable()
 function! s:Disable()
-    if exists("b:indentLine_enabled") && b:indentLine_enabled
-        return
-    elseif exists("b:indentLine_leadingSpaceEnabled") && b:indentLine_leadingSpaceEnabled
-        return
-    elseif s:Filter() == 0
+    if s:Filter() == 0
         call s:IndentLinesDisable()
         call s:LeadingSpaceDisable()
     endif
