@@ -17,7 +17,7 @@ if [ ! -d "./.config" ]; then
 fi
 
 rsync -r -l $HOME/.config/{i3,bspwm,sxhkd,picom,polybar,qt5ct,alacritty,kitty} ./.config
-rsync $HOME/.config/nvim/{init.vim,config.vim,coc-config.vim,.vim,keybindings.vim,plugins.vim} ./.config/nvim
+rsync $HOME/.config/nvim/{init.vim,config.vim,coc-config.vim,keybindings.vim,plugins.vim} ./.config/nvim
 rsync -r $HOME/.config/nvim/lua ./config/nvim/lua
 rsync -r $HOME/Pictures/Wallpapers/* Pictures/Wallpapers
 
