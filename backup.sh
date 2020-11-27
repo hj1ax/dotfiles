@@ -18,6 +18,7 @@ fi
 
 rsync -r -l $HOME/.config/{i3,bspwm,sxhkd,picom,polybar,qt5ct,alacritty,kitty} ./.config
 rsync $HOME/.config/nvim/{init.vim,config.vim,coc-config,.vim,keybindings.vim,plugins.vim,plug-colorizer.lua} ./.config/nvim
+rsync -r $HOME/.config/nvim/lua ./config/nvim/lua
 rsync -r $HOME/Pictures/Wallpapers/* Pictures/Wallpapers
 
 git add -A
