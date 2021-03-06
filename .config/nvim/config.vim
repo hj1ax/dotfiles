@@ -60,24 +60,11 @@ if (empty($TMUX))
   endif
 endif
 
-" Airline theme
-let g:airline_theme='onedark'
-
-" Airline powerline fonts
-let g:airline_powerline_fonts=1
-
-let g:airline#extentions#tabline#enabled=1
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
-
-
-" Display CoC warnings in airline
-
-let g:airline#extensions#coc#enabled = 1
-let airline#extensions#coc#error_symbol = 'Err:'
-let airline#extensions#coc#warning_symbol = 'Warn:'
-let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
-let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+let g:lightline = {
+    \ 'colorscheme': 'onedark',
+    \ }
 
 " Autoclose tags e.g. <div> in following files
 
@@ -85,4 +72,3 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.ts,*.tsx,*.jsx'
 
 
 source ~/.config/nvim/coc-config.vim
-source ~/.config/nvim/coc-explorer-config.vim

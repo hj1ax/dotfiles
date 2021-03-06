@@ -8,8 +8,7 @@ endif
 "# vim-plug plugins
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'joshdick/onedark.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -23,7 +22,6 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'arcticicestudio/nord-vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'sheerun/vim-polyglot'
-Plug 'ryanoasis/vim-devicons'
 Plug 'alvan/vim-closetag'
 
 call plug#end()
